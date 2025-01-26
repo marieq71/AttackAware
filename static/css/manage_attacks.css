@@ -1,0 +1,365 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;           /* Set the font for the page */
+    margin: 0;                                 /* Removing the default margin */
+    padding: 0;                                 /* Removing default padding */
+    background-color: #f0f4ff;                   /* Light blue background*/
+}
+
+.manage-container {
+    width: 80%;                                      /* Setting container width */
+    margin: 0 auto;                                  /* Container in the center */
+    padding: 20px;                                   /* Adding padding inside the container */
+    display: flex;                                    /* Using flexbox for layout */
+    flex-direction: column;                           /* Stacking content vertically */
+    align-items: center;                              /* Align items to the center */
+    gap: 20px;                                         /* Space between sections */
+}
+
+/* Header Section */
+.header-section h1 {
+    font-size: 28px;                                  /* Setting font size */
+    color: #04016C;                                   /* Dark blue color for text */
+    text-align: center;                               /* Center align of text */
+    margin-bottom: 10px;                              /* Space below the header */
+}
+
+/* Image Section */
+.image-section img {
+    width: 100%;                                     /* Make the image take up the full width of its container */
+    height: auto;                                    /* Maintain aspect ratio */
+    object-fit: cover;                              /* Ensure the image covers the container neatly */
+    display: flex;                                  /* Remove space below the image */
+}
+
+.image-section {
+    width: 100%;                             /* Let the section take the full width of the page */
+    margin: 0;                               /* Remove any margins that might restrict the section */
+    padding: 0;                              /* Remove unnecessary padding */
+}
+
+
+/* Form Section */
+.form-section {
+    width: 100%;                                         /* Full width for form */
+    background: white;                                   /* White background */
+    padding: 20px;                                       /* Adding padding inside the form */
+    border-radius: 8px;                                  /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);           /* Light shadow */
+    box-sizing: border-box;
+    overflow: hidden;                             /* Ensure content doesn't overflow */
+}
+
+.form-section form {
+
+    flex-direction: column;                           /* Stacking fields vertically */
+    gap: 15px;                                        /* Space between fields */
+}
+
+.form-section label {
+    font-weight: bold;                                /* Making the labels bold */
+    color: #323232;                                   /* Label color */
+}
+
+.form-section input,
+.form-section textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 25px; /* Add extra spacing below each field */
+    width: calc(100% - 22px);
+    box-sizing: border-box;
+}
+
+/* Reduced Button Length */
+.form-section button {
+    background: #17a2b8;
+    color: white;
+    padding: 8px 16px;                  /* Control button padding */
+    width: auto;                        /* Ensure the width is determined by content */
+    max-width: 200px;                   /* Set a max-width to control the button's length */
+    border: none;                         /* Removing the border */
+    border-radius: 5px;                   /* Rounded corners */
+    cursor: pointer;                      /* Pointer curser on hover */
+    font-weight: bold;                    /* Bold text */
+    text-align: center;                    /* Center text */
+    font-size: 14px;                       /* Adjust font size if needed */
+    margin: 5px 0;                          /* Space between buttons */
+}
+
+.form-section button:hover {
+    background: #138496;
+}
+
+.form-section .btn-danger {
+    background: #dc3545;                   /* Red background for danger buttons */
+}
+
+.form-section .btn-danger:hover {
+    background: #c82333;                         /* Darker red on hover */
+}
+
+/*  Attacks Section */
+.attacks-section {
+    width: 100%;                               /* Full width for the section */
+    margin-top: 20px;                          /* Space above the section */
+    text-align: left;                         /* Left-align text */
+}
+
+.attacks-section h2 {
+    font-size: 20px;                          /* Font size for section title */
+    color: #323232;                            /* Color for title */
+}
+
+.attacks-section ul {
+    list-style-type: none;                    /* Remove bullet points */
+    padding: 0;                              /* Remove padding */
+}
+
+.attacks-section li {
+    margin: 5px 0;                             /* Space between list items */
+    font-size: 16px;                          /* Font size for list items */
+}
+
+.attacks-section a {
+    color: #17a2b8;                          /* Blue color for links */
+    text-decoration: none;                    /* Remove underline from links */
+}
+
+.attacks-section a:hover {
+    text-decoration: underline;                /* Underline links on hover */
+}
+
+/* Scenario Section */
+.scenario-section {
+    width: 100%;                               /* Full width for the section */
+    background: #ffffff;                       /* White background */
+    padding: 20px;                             /* Padding inside the section */
+    border-radius: 8px;                        /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    box-sizing: border-box;                    /* Include padding in dimensions */
+    overflow: hidden;                          /* Prevent content overflow */
+    margin-top: 40px;
+}
+
+.scenario-section h2 {
+    font-size: 22px;                           /* Slightly larger font for title */
+    color: #2AAA94;                            /* Green title color */
+    margin-bottom: 15px;                       /* Add space below the title */
+}
+
+/* Form Section for Adding Scenarios */
+.scenario-section #scenario-form {
+    display: flex;                             /* Use flexbox for layout */
+    flex-direction: column;                    /* Stack fields vertically */
+    gap: 15px;                                 /* Space between form fields */
+}
+
+.scenario-section #scenario-form label {
+    font-weight: bold;                         /* Make labels bold */
+    color: #1a1aff;                            /* Blue color for labels */
+}
+
+.scenario-section #scenario-form input,
+.scenario-section #scenario-form textarea {
+    padding: 10px;                             /* Add padding inside input fields */
+    border: 1px solid #ccc;                    /* Light gray border */
+    border-radius: 5px;                        /* Rounded corners */
+    width: 100%;                               /* Full width for inputs */
+    box-sizing: border-box;                    /* Include padding/border in dimensions */
+}
+
+.scenario-section #scenario-form textarea {
+    resize: vertical;                          /* Allow vertical resizing only */
+    min-height: 80px;                          /* Minimum height for text area */
+}
+
+/* Button Styling */
+.scenario-section #scenario-form button {
+    background: #17a2b8;
+    color: white;
+    padding: 8px 16px;                  /* Control button padding */
+    width: auto;                        /* Ensure the width is determined by content */
+    max-width: 200px;                   /* Set a max-width to control the button's length */
+    border: none;                         /* Removing the border */
+    border-radius: 5px;                   /* Rounded corners */
+    cursor: pointer;                      /* Pointer curser on hover */
+    font-weight: bold;                    /* Bold text */
+    text-align: center;                    /* Center text */
+    font-size: 14px;                       /* Adjust font size if needed */
+    margin: 5px 0;                          /* Space between buttons */
+}
+
+.scenario-section #scenario-form button:hover {
+    background: #138496;                       /* Darker teal on hover */
+}
+
+/* Existing Scenarios Styling */
+.existing-scenarios {
+    margin-top: 30px;                          /* Add space above the section */
+    max-width: 750px;                         /* Increased max width */
+    width: 100%;                               /* Ensure it takes full width */
+    margin-left: auto;                         /* Center align the container */
+    margin-right: auto;                        /* Center align the container */
+    padding: 20px;                             /* Add padding around the section */
+}
+
+.existing-scenarios h3 {
+    font-size: 18px;                           /* Font size for the header */
+    color: #333;                               /* Dark gray color */
+    margin-bottom: 10px;                       /* Space below the header */
+}
+
+.existing-scenarios ul {
+    list-style: none;                          /* Remove bullets */
+    padding: 0;                                /* Remove padding */
+}
+
+.existing-scenarios ul li {
+    margin-bottom: 15px;                       /* Space between items */
+    padding: 15px;                             /* Increased padding to each item */
+    border: 1px solid #ddd;                    /* Light gray border */
+    border-radius: 5px;                        /* Rounded corners */
+    background: #f9f9f9;                       /* Light gray background */
+}
+
+
+
+/* Styling for Remove Attack Button */
+.remove-attack-btn {
+    background-color: #dc3545;                          /* Bootstrap red background */
+    color: #fff;
+    padding: 10px 16px;                                 /* To adjust the padding */
+    font-size: 14px;                                    /* Adjust font size */
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;                                  /* To make button more rounded */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transitions */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);                    /* Add a shadow effect */
+}
+
+.toast-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    z-index: 1000;
+}
+
+
+.remove-attack-btn:hover {
+    background-color: #c82333;                                   /* Darker red on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);                   /* Slightly deeper shadow */
+}
+
+.scenario-section #scenario-form button:hover {
+    background: #138496;                              /* Darker shade on hover */
+}
+
+.scenario-section #scenario-form .btn-danger {
+    background: #dc3545;                               /* Red background for danger buttons */
+}
+
+.scenario-section #scenario-form .btn-danger:hover {
+    background: #c82333;                                /* Darker red on hover */
+}
+
+/* Manage Videos Section Container */
+.manage-videos-container {
+    background-color: #084FC7; /* Blue background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: white; /* White text color for contrast */
+    max-width: 100%; /*  Width of the blue container */
+    margin: 0 auto; /* Center it on the page */
+    width: 100%; /* Allow it to take full available width */
+}
+
+/* Heading inside the container */
+.manage-videos-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Form inside the container */
+.manage-videos-container form {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Input inside the container */
+.manage-videos-container input[type="text"] {
+    padding: 10px;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Button inside the container */
+.manage-videos-container button {
+    background: #17a2b8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.manage-videos-container button:hover {
+    background: #138496;
+}
+
+/* List of Videos inside the container */
+.manage-videos-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* List items inside the container */
+.manage-videos-container ul li {
+    background: #f9f9f9;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+}
+
+/* Remove Video Button inside the container */
+.manage-videos-container ul li form button {
+    background: #dc3545;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.manage-videos-container ul li form button:hover {
+    background: #c82333;
+}
+
+.hidden {
+    display: none;
+}
+
+
+

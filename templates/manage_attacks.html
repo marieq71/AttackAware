@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manage_attacks.css') }}">
+    <script src="{{ url_for('static', filename='js/manage_attacks.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="manage-container">
+    <div class="header-section">
+        <h1>Manage Cyber Attacks</h1>
+    </div>
+
+    <div class="image-section">
+        <img src="{{ url_for('static', filename='img/img/computer.png') }}" alt="Computer Image" class="top-image">
+    </div>
+
+    <!-- Add Attack Form -->
+    <div class="form-section">
+        <form method="POST" action="{{ url_for('manage_attacks') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <label for="new_attack">New Attack Name:</label>
+            <input type="text" id="new_attack" name="new_attack" required>
+
+            <label for="description">Description of the Attack:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="prevention">How to Prevent the Attack Type?</label>
+            <textarea id="prevention" name="prevention" rows="4" required></textarea>
+
+            <label for="warning_message">Warning Message:</label>
+            <input type="text" id="warning_message" name="warning_message">
+
+            <label for="template_name">Template Name (e.g., ransomware.html):</label>
+            <input type="text" id="template_name" name="template_name" required>
+
+            <button type="submit">Add Attack</button>
+        </form>
+    </div>
+
+    <!-- Existing Attacks Section -->
+    <div class="attacks-section">
+        <h2>Existing Attacks</h2>
+        <ul>
+            {% for attack in attacks %}
+                <li>
+                    <strong>{{ attack.name }}</strong>
+                    {% if attack.image_path %}
+                        <img src="{{ url_for('static', filename=attack.image_path) }}" alt="Image" style="width: 100px;">
+                    {% endif %}
+                    <!-- View link to attack details -->
+                    <a href="{{ url_for('attack', attack_id=attack.id) }}">View</a>
+                    <form method="POST" action="{{ url_for('remove_attack', attack_id=attack.id) }}" style="display: inline;">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <button type="submit" class="btn btn-danger remove-attack-btn">Remove Attack</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+<h1>Manage Videos</h1>
+
+<div class="manage-videos-container">
+    <h2>Manage Videos</h2>
+    <!-- Form to add a video -->
+    <form action="{{ url_for('manage_videos') }}" method="POST">
+        <!-- CSRF Token -->
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <input type="text" name="video_link" placeholder="Enter video link" required>
+        <button type="submit">Add Video</button>
+    </form>
+
+    <h3>Existing Videos</h3>
+    <!-- Display existing videos  -->
+    <ul>
+        {% for video in videos %}
+        <li>
+            <a href="{{ video.link }}" target="_blank">{{ video.link }}</a>
+            <!-- Form to remove a video -->
+            <form action="{{ url_for('remove_video', video_id=video.id) }}" method="POST" style="display:inline;">
+                <!-- CSRF Token -->
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit">Remove Video</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+    <!-- Custom Alert Popup -->
+    <div id="custom-alert" class="{{ 'hidden' if not (attack_created or scenario_created) else '' }}">
+        <h2>Success</h2>
+        <p>{% if attack_created %} Attack created successfully! {% elif scenario_created %} Scenario created successfully! {% endif %}</p>
+        <button id="close-alert-btn">OK</button>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay hidden"></div>
+
+    <!-- Scenario Management Section -->
+    <div class="scenario-section">
+        <h2>Create a Practice Scenario</h2>
+        <form id="scenario-form" method="POST" action="{{ url_for('manage_attacks') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <label for="scenario-type">Scenario Type:</label>
+            <input type="text" id="scenario-type" name="scenario-type" required>
+
+            <label for="correct-answer">Correct Answer:</label>
+            <input type="text" id="correct-answer" name="correct-answer" required>
+
+            <label for="incorrect-answer">Incorrect Answer:</label>
+            <input type="text" id="incorrect-answer" name="incorrect-answer">
+
+            <label for="extra-notes">Extra Notes:</label>
+            <textarea id="extra-notes" name="extra-notes"></textarea>
+
+            <button type="submit">Add Scenario</button>
+        </form>
+    </div>
+
+    <!-- Display Existing Scenarios -->
+    <div class="existing-scenarios">
+        <h3>Existing Scenarios</h3>
+        <ul>
+            {% for scenario in scenarios %}
+                <li>
+                    <strong>{{ scenario.type }}</strong><br>
+                    Correct Answer: {{ scenario.correct_answer }}<br>
+                    Incorrect Answer: {{ scenario.incorrect_answer }}<br>
+                    Notes: {{ scenario.extra_notes }}<br>
+                    <form method="POST" action="{{ url_for('remove_scenario', scenario_id=scenario.id) }}" style="display: inline;">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

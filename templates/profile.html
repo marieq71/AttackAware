@@ -1,0 +1,189 @@
+{% extends 'base.html' %}           <!-- Inherits code from the base.html file -->
+
+{% block title %} Profile Page {% endblock %}  <!-- Custom header -->
+
+{% block head %}
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/threats.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="headerOne">User Profile</h1>
+
+<div class="profileContainer">
+<div class="bgContain">
+<img class="profileBg" src="{{ url_for('static', filename='img/img/profileImg.jpg') }}" alt="Picture of laptop with darker background">
+</div>
+
+<form action="{{ url_for('profile') }}" method="post" enctype="multipart/form-data">
+
+   {{ form.hidden_tag() }}  <!-- CSRF token will be rendered here -->
+                                    <!-- This will work with the WFT forms, WTF Form can
+                                    protect our site from Cross-Site Request Forgery 
+                                    (CSRF) attacks -->
+
+<!--Create default profile-->
+<div class="userProf">
+   {% if user.profilePic %}
+
+   <img id="defaultProfilePic" class="defualtProfilePic" 
+     src="{{ url_for('uploadedFile', filename=user.profilePic) }}" 
+     alt="User Profile Image">
+
+   {% else %}
+
+   <img id="defaultProfilePic" class="defualtProfilePic" 
+    src="{{ url_for('static', filename='img/icons/user.png') }}"
+    alt="User Profile Image">
+
+    {% endif %}
+
+   <!-- Custom button with plus icon that triggers the hidden file input -->
+   <label for="profile-picture-upload">
+      <img class="plus" 
+      src="{{ url_for('static', filename='img/icons/plusTwo.png') }}" 
+      alt="Upload">
+  </label>
+
+  <!-- Hidden file input -->
+  <input id="profile-picture-upload" class="file-input" 
+  type="file" name="profilePic" accept="image/*" 
+  onchange="previewImage(event);">
+    
+</div>
+
+</div>
+
+<div class="userProfInfo">
+   
+      <h1 class="headerTwo">
+         <div class="headingBlack">User</div> <div class="headingTeal">Profile</div>
+    </h1>
+
+           {% with messages = get_flashed_messages(category_filter='update') %} 
+             <!-- category_filter='update' is 
+             the part that lets the flash message
+             only show up for this form -->
+           {% if messages %}
+           <ul class="flashes contactUL">
+           {% for message in messages %}
+           <li class="flashItem contactLI">
+           <img class="iconSpesification" src="{{ url_for('static', filename='/img/icons/warning.png') }}" alt="Warning Icon"> 
+           <span class="flashMessage">{{ message }}</span>
+           </li>
+           {% endfor %}
+           </ul>
+           {% endif %}
+           {% endwith %}
+
+    <br>
+   <div class="profInfoFields">
+
+   {{ form.firstName.label }} {{ form.firstName(value=user.firstName) }}
+   {{ form.lastName.label }} {{ form.lastName(value=user.lastName) }}
+   {{ form.email.label }} {{ form.email(value=user.email) }}
+   {{ form.birthday.label }} {{ form.birthday(value=user.birthday.strftime('%Y-%m-%d') if user.birthday else '') }}
+         
+   <div class="flexButtons">
+      <!-- Change Password Button -->
+      <input class="changePassword" type="button" value="Change Password" onclick="showPasswordModal()">
+
+      {{ form.submit }} 
+
+   </div>
+</div>
+
+   </form>
+
+
+
+         <div id="passwordModal" class="modal">
+
+            <div class="modal-content">
+               <span class="close" onclick="closePasswordModal()">
+                   &times;
+               </span>
+
+               <h2>Change Password</h2>
+
+             <form class="changePasswordForm" id="changePasswordForm" method="POST" 
+                   action="{{ url_for('profile') }}">
+
+                   {{ changePassword_form.hidden_tag() }} 
+
+                      {{ changePassword_form.oldPassword.label }}
+                      {{ changePassword_form.oldPassword }}                        
+
+                      {{ changePassword_form.newPassword.label }}
+                      {{ changePassword_form.newPassword }}                          
+
+                      {{ changePassword_form.submit }}      
+             </form>
+             
+           </div>
+              
+</div>
+
+<!--Create User Progress bar that only generate for users /not admin-->
+
+{% if not current_user.is_admin %}
+
+<div class="yourProgressContainer">
+
+<div class="yourProgressHeading">
+Your Progress
+</div>
+<p class="yourProgressGraph">
+   You still have some time to complete your latest training.....
+</p>
+
+<p class="userProgressComplete">{{ progressBar }}%  <span class="completed-text">completed</span></p>
+<progress class="progressBar" value="{{ progressBar }}" min="0" max="100" > </progress>
+
+</div>
+
+
+<div class="userFavTopics">
+
+   <p class="yourFavTopicsText">Your <span class="favText">favorite</span> topics</p>
+
+</div>
+
+<div class="favTopicsRows">
+
+   {% if favTopics %}
+
+    <!--Jinja will dynamically populate the topics based on the amount 
+    that was coded in app.route (limit = 3)-->
+   {% for topic in favTopics %}
+   <div class="favTopicsColumn">
+       <div class="favTopicsCard">
+
+         <img 
+         src="{{ topicImage.get(topic.topic, 'static/images/default.jpg') }}" 
+         alt="{{ topic.topic }}" class="favTopicImg">
+           <span class="userTopicfromDatabase">{{ topic.topic }}</span>
+         
+           <p class="favTopicGraph">
+            {{ topicGraph.get(topic.topic, 'Description not available.') }}
+           </p>
+       </div> 
+   </div>
+   {% endfor %}
+
+   {% else %}
+
+     <p>No topics found</p>
+
+   {% endif %}
+
+</div>
+
+{% endif %}
+
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+
+{% endblock %}

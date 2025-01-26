@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ransomware.css') }}"> 
+{% endblock %}
+
+{% block content %}
+    <div class="header"> <!-- Header section -->
+        <h1>Ransomware</h1>
+        <div class="blue-line"></div> <!-- Blue line -->
+    </div>
+
+    <div class="content"> <!-- Main Content of page -->
+
+        <!-- Full-width image section -->
+        <div class="image-section">
+            <img src="{{ url_for('static', filename='img/img/computer.png') }}" alt="Computer Image">
+        </div>
+
+        <div class="section">
+            <h2 class="ransomware-heading">What is <span class="highlight">Ransomware?</span></h2>
+            <p>Ransomware is a type of malicious software designed to block access to a computer system until a sum of money is paid. It typically encrypts the user's data, making it inaccessible.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="ransomware-heading">How to Prevent <span class="highlight">Ransomware?</span></h2>
+            <ul>
+                <li>Regularly update your software and operating systems.</li>
+                <li>Use strong passwords and multi-factor authentication.</li>
+                <li>Back up your data frequently.</li>
+                <li>Avoid clicking on unknown links or downloading suspicious files.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="ransomware-heading">What to Do If You’re Hit by <span class="highlight">Ransomware?</span></h2>
+
+            <!-- Warning message styled as per the requirements -->
+            <div class="dangerous-action">
+                <span class="highlight">DO</span> <span class="bold">NOT</span> <span class="white">PAY THE RANSOM</span>
+            </div>
+
+            <ol>
+                <li>Disconnect your device from the network immediately.</li>
+                <li>Report the incident to your local Cybersecurity team or authorities.</li>
+                <li>Restore your data from a secure backup if available.</li>
+                <li>Consult with a cybersecurity expert for further assistance.</li>
+                <li>Try to identify the type of ransomware by noting specific messages or file extensions.</li>
+                <li>After resolving the issue, change all your passwords using a different, uninfected device.</li>
+                <li>Keep your operating system and software up-to-date to prevent future attacks.</li>
+            </ol>
+        </div>
+
+        <!-- Section: Informational Video -->
+        <div class="video-section">
+            <div class="video-block">
+                <h3><span class="info-text">For more Information</span>, <span class="highlight-text">watch this</span></h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/fc2tbHWZu4I" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+{% endblock %}

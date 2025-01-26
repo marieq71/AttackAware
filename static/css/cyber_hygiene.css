@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;               /* Sets font for the page */
+    color: #333;                    /* Setting the text color */
+    margin: 0;
+    padding: 0;
+    background-color: #F1F7FF;      /* Matches header background color */
+}
+
+.header {                           /* Header Styling */
+    background-color: #F1F7FF;      /* Header background */
+    padding: 20px;                  /* Space inside the Header */
+    text-align: center;
+    color: #04016C;
+}
+
+.blue-line {
+    width: 100%;                   /* Full width of the page */
+    height: 4px;                    /* Adjust thickness */
+    background-color: #1a73e8;      /* Blue color matching the h1 color */
+    margin: 20px 0 40px 0;          /* Optional: spacing around the line */
+}
+
+.content {
+    padding: 20px;                  /* Space around content */
+}
+
+.section {
+    margin: 20px 0;                 /* Space between the sections */
+}
+
+.section h2 {
+    color: #001f3f;                 /* Dark Blue */
+}
+
+.highlight {
+    color: #2AAA94;                 /* Green color for the highlighted text */
+}
+
+                                    /* Full-width image styling */
+.image-section img {
+    width: 100%;                   /* Makes the image span the entire width of the page */
+    height: 450px;                 /* Adjusts the height of the image */
+    object-fit: cover;             /* Ensures the image covers the specified height */
+    display: block;                /* Ensures the image is treated as a block element */
+    margin: 0 auto;                /* Centers the image horizontally */
+}
+
+.warning {                          /* Styling for warning box */
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;                  /* Space inside the warning box */
+    border-left: 5px solid #f5c6cb;
+    margin: 20px 0;                 /* Space around the warning box */
+}
+
+                                     /* Styling for headings with two colors */
+.cyber_hygiene-heading {
+    color: #2AAA94;                 /* Primary color */
+}
+.cyber_hygiene-heading .highlight {
+    color: #2AAA94;                 /* Secondary color for highlight */
+}
+
+.dangerous-action {
+    text-align: center;
+    background-image: linear-gradient(to bottom, #084FC7, #4A90E2, white); /* Gradient from dark blue to light blue to white */
+    color: white;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 1.7em;
+    border-radius: 5px;                     /* Optional: for rounded corners */
+}
+
+.dangerous-action .highlight {
+    color: #4BE5CA;                          /* Teal color for "DO" */
+}
+
+.dangerous-action .bold {
+    color: black;                             /* Black color for "NOT" */
+}
+
+.dangerous-action .white {
+    color: white;                              /* White color for "PAY THE RANSOM" */
+}
+
+                                    /* Section styling */
+.video-section {
+    text-align: center;
+    margin: 30px 0;                 /* Space above and below the video section */
+}
+
+.video-block {
+    background-color: #4A16BD;      /* Color block around video */
+    padding: 20px;                  /* Padding inside the color block */
+    border-radius: 8px;             /* Optional: rounded corners */
+}
+
+.video-block h3 {
+    margin: 0 0 15px 0;             /* Space below heading */
+    font-size: 1.2em;
+}
+
+.info-text {
+    color: white;                   /* White color for "For more Information" */
+}
+
+.highlight-text {
+    color: #4BE5CA;                 /* Teal color for "watch this" */
+}
+
+.content-container {
+    max-width: 1100px; /* Adjust as needed for readability */
+    margin: 0 auto;   /* Centers the div */
+    text-align: left;
+    padding: 20px;
+}
+
+

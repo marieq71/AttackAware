@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/threats.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <!-- Main header for the section -->
+        <h1 class="headerOne">Cyber Attacks</h1>
+        <div class="blue-line"></div> <!-- Blue line element to style the section header visually -->
+
+        <!-- Section for displaying the top five cyber risks -->
+        <section class="top-risks">
+            <h2>Top<span class="highlight-top"> Five</span> Risks</h2>
+            <p>In today's rapidly evolving digital landscape, these top 5 cyber risks highlight the most critical threats individuals and organisations face, offering insight into the vulnerabilities that require immediate attention and proactive defence.</p>
+
+            <!-- Container for the risk cards -->
+            <div class="risks-container">
+
+                <div class="risk-card">
+                    <!-- Image for Social Engineering / Phishing -->
+                    <img src="{{ url_for('static', filename='img/img/social_engineering.jpg') }}" alt="Social Engineering / Phishing">
+                    <p><strong>Social Engineering Attacks / Phishing</strong></p>
+                    <p>Learn how to identify and prevent social engineering attacks that aim to steal your personal information.</p>
+                    <a href="{{ url_for('social_engineering') }}" class="get-started">Get started</a>
+                </div>
+
+                <div class="risk-card">
+                    <!-- Image for Ransomware -->
+                    <img src="{{ url_for('static', filename='img/img/ransomware.jpg') }}" alt="Ransomware">
+                    <p><strong>Ransomware</strong></p>
+                    <p>Understand the risks of ransomware and learn the best practices to protect your data from ransomware attacks.</p>
+                    <a href="{{ url_for('ransomware') }}" class="get-started">Get started</a>
+                </div>
+
+                <div class="risk-card">
+                    <!-- Image for Cyber Hygiene -->
+                    <img src="{{ url_for('static', filename='img/img/cyber_hygiene1.png') }}" alt="Poor Cyber Hygiene">
+                    <p><strong>Poor Cyber Hygiene</strong></p>
+                    <p>Learn how to improve your cyber hygiene habits to protect yourself from various cyber threats.</p>
+                    <a href="{{ url_for('cyber_hygiene') }}" class="get-started">Get started</a>
+                </div>
+
+                <div class="risk-card">
+                    <!-- Image for IoT Device Hacking -->
+                    <img src="{{ url_for('static', filename='img/img/IoT1.png') }}" alt="IoT Device Hacking">
+                    <p><strong>IoT Device Hacking</strong></p>
+                    <p>Learn how to secure your IoT devices from potential hacking attempts and vulnerabilities.</p>
+                    <a href="{{ url_for('IoT') }}" class="get-started">Get started</a>
+                </div>
+
+                <div class="risk-card">
+                    <!-- Image for Phishing Scams -->
+                    <img src="{{ url_for('static', filename='img/img/phishing.png') }}" alt="Phishing Scams">
+                    <p><strong>Phishing Scam</strong></p>
+                    <p>How to identify phishing scams & protect your personal information from being stolen.</p>
+                    <a href="{{ url_for('phishing_scams') }}" class="get-started">Get started</a>
+                </div>
+
+            </div>
+
+        </section>
+         <div class="blue-line"></div> <!-- Blue line element to style the section header visually -->
+
+        <section class="other-threats">
+            <h2>Other <span class="highlight-top">Threats</span></h2>
+            <p>While the spotlight often shines on the most notorious cyber threats, users must remain vigilant for other lurking dangers which might exploit vulnerabilities and compromise security.</p>
+            <img src="{{ url_for('static', filename='img/img/other_threats.png') }}" alt="Other Threats">
+        </section>
+
+        <!--Render 'Add New Threat' only if user is admin-->
+       {% if is_admin %}
+             <button onclick=window.location.href='{{ url_for('manage_attacks') }}' class="button">
+                Add New Threat
+             </button>
+       {% endif %}
+
+    </main>
+{% endblock %}

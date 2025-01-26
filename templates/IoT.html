@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/IoT.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="header"> <!-- Header section -->
+        <h1>IoT Device Hacking</h1>
+        <div class="blue-line"></div> <!-- Blue line -->
+    </div>
+
+    <div class="content"> <!-- Main Content of page -->
+
+        <!-- Full-width image section -->
+        <div class="image-section">
+            <img src="{{ url_for('static', filename='img/img/IoT1.png') }}" alt="IoT_device_hacking Image">
+        </div>
+
+        <div class="section">
+            <h2 class="IoT-heading">What is <span class="highlight">IoT Device Hacking?</span></h2>
+            <p>IoT (Internet of Things) device hacking refers to exploiting vulnerabilities in internet-connected devices to gain unauthorized access or control. IoT devices include everyday objects like smart home appliances, security cameras, wearable technology, and industrial equipment, all of which are connected to the internet and communicate with each other.</p>
+        </div>
+
+        <!-- Section: Prevention Tips -->
+        <div class="section">
+            <h2 class="IoT-heading">How to prevent <span class="highlight">IoT Device Hacking?</span></h2>
+            <ul>
+                <li>Use Strong, Unique Passwords: Change default passwords on IoT devices to strong, unique passwords. Many devices come with weak or well-known default passwords, making them easy targets for attackers.</li>
+                <li>Enable Two-Factor Authentication (2FA): Where available, use two-factor authentication to add an extra layer of security, ensuring that even if a password is compromised, unauthorized access is still more difficult.</li>
+                <li>Keep Firmware and Software Updated: Regularly update your IoT devices with the latest firmware and software patches. Manufacturers often release updates to fix security vulnerabilities, so keeping devices up-to-date can protect against newly discovered threats.</li>
+                <li>Disable Unnecessary Features: Turn off features that are not in use, such as remote access or data sharing. These features can be potential entry points for attackers if left enabled.</li>
+            </ul>
+        </div>
+
+        <!-- Section: What to Do if Hacked -->
+        <div class="section">
+            <h2 class="ransomware-heading">What to Do If You’re a victim of <span class="highlight">IoT Device Hacking?</span></h2>
+
+            <!-- Warning message styled as per the requirements -->
+            <div class="dangerous-action">
+                <span class="highlight">MAKE THE</span> <span class="bold">RIGHT</span> <span class="white">CONNECTIONS</span>
+            </div>
+
+            <ol>
+                <li>Disconnect the Device Immediately: Disconnect the compromised IoT device from the internet or your home network to prevent the hacker from accessing it or using it for further attacks.</li>
+                <li>Change Passwords: Change the passwords of the hacked device, your home router, and any associated accounts. Ensure the new passwords are strong and unique for each device and account. If the device has a default password, replace it right away.</li>
+                <li>Update Firmware and Software: Check for any firmware or software updates for the compromised device. Manufacturers often release security patches to address vulnerabilities. Make sure all IoT devices are running the latest versions of their software.</li>
+                <li>Reset the Device to Factory Settings: If the device has been severely compromised, perform a factory reset to remove any malware or unauthorized access. After the reset, set up the device again using secure settings and updated firmware.</li>
+            </ol>
+        </div>
+
+        <!-- Section: Informational Video -->
+        <div class="video-section">
+            <div class="video-block">
+                <h3><span class="info-text">For more Information</span>, <span class="highlight-text">watch this</span></h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/7zWVxrjjIpE" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

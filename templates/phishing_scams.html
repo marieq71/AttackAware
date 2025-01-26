@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/phishing_scams.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="header"> <!-- Header section -->
+        <h1>Phishing Scams</h1>
+        <div class="blue-line"></div> <!-- Blue line -->
+    </div>
+
+    <div class="content"> <!-- Main Content of page -->
+
+        <!-- Full-width image section -->
+        <div class="image-section">
+            <img src="{{ url_for('static', filename='img/img/phishing.png') }}" alt="phishing_scams Image">
+        </div>
+
+        <div class="section">
+            <h2 class="phishing_scam-heading">What is <span class="highlight">a Phishing Scam?</span></h2>
+            <p>Phishing is a technique used by hackers to trick people into giving personal details or taking an action.</p>
+            <p>A phishing scam might ask you for login information, get you to open an attachment, or even pay an invoice or bill. These cyber-criminals spend a lot of time setting up lures and scams, making them look convincing and legitimate.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="phishing_scam">How to spot <span class="highlight">a Phishing Scam?</span></h2>
+            <ul>
+                <li>Is the spelling and grammar in the message correct?</li>
+                <li>Does the link and the text match - hover your mouse over the link, and you will see what the link really is.</li>
+                <li>Does the email urge you to take immediate action?</li>
+                <li>Does the email address of the sender look reasonable compared to the content of the email?</li>
+                <li>Look at the salutation does it say ‘Dear Customer’?</li>
+                <li>Look at the signature, a lack of detail for the person or company suggests phishing.</li>
+                <li>Are you expecting an email from that sender?</li>
+                <li>Is the message asking you to do something unusual? e.g. buy iTunes cards.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="ransomware-heading">What to Do If You’re a victim of <span class="highlight">Phishing Scam?</span></h2>
+
+            <!-- Warning message styled as per the requirements -->
+            <div class="dangerous-action">
+                <span class="highlight">DONT</span> <span class="bold">GET</span> <span class="white">HOOKED</span>
+            </div>
+
+            <ol>
+                <li>Disconnect Your Device from the Internet - In order to reduce the risk of malware propagating throughout your network, the first step to take is to disconnect your device from the network. Either locate your Wi-Fi settings and disconnect from the network or simply unplug the internet cable from your device.</li>
+                <li>Change Passwords - Change the passwords of the hacked device, your home router, and any associated accounts. Ensure the new passwords are strong and unique for each device and account. If the device has a default password, replace it right away.</li>
+                <li>Check for Signs of Identity Theft - If you believe that you have been the victim of a phishing scam, you should review all relevant accounts for signs of identity theft. For example, you will need to look at your bank statements for suspicious transactions. In most cases, your bank will alert you of any suspicious account activity.</li>
+                <li>Take a Backup and Update Your Software - It’s a good idea to take a backup of your data following a cyber-attack in case any of your data gets erased during the remediation process. You will also need to ensure that all software is patched in a timely manner as many forms of malware will try to exploit software vulnerabilities in order to spread to other parts of the network.</li>
+            </ol>
+        </div>
+
+        <div class="video-section">
+            <div class="video-block">
+                <h3><span class="info-text">For more Information</span>, <span class="highlight-text">watch this</span></h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4lcAZgB_iVg" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

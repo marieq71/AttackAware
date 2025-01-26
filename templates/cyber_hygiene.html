@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cyber_hygiene.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="header"> <!-- Header section -->
+        <h1>Poor Cyber Hygiene</h1>
+        <div class="blue-line"></div> <!-- Blue line -->
+    </div>
+
+    <div class="content"> <!-- Main Content of page -->
+
+        <!-- Full-width image section -->
+        <div class="image-section">
+            <img src="{{ url_for('static', filename='img/img/cyber_hygiene1.png') }}" alt="cyber_hygiene Image">
+        </div>
+
+        <div class="section">
+            <h2 class="cyber_hygiene-heading">What is <span class="highlight">Poor Cyber Hygiene?</span></h2>
+            <p>Just like good personal hygiene, Cyber Hygiene is essential if you want to keep yourself protected from Cyber Attackers. The best way to avoid a cyber threat is through education and prevention. It is important for any company to have good “cyber hygiene”, which are regular habits and practices regarding technology use</p>
+        </div>
+
+        <div class="section">
+            <h2 class="cyber_hygiene-heading">How to exercise Good <span class="highlight">Cyber Hygiene?</span></h2>
+            <ul>
+                <li>Avoiding unprotected public WiFi networks.</li>
+                <li>Implementing multi-factor authentication on all enabled accounts, this offers an added layer of protection to your privacy and sensitive information.</li>
+                <li>Secure your devices, such as using up-to-date anti-malware and anti-virus software.</li>
+                <li>Use strong, unique passwords for all your accounts and don't use the same passwords for different accounts.</li>
+            </ul>
+        </div>
+
+        <!-- Warning message styled as per the requirements -->
+        <div class="dangerous-action">
+            <span class="highlight">ALWAYS</span> <span class="bold">BE</span> <span class="white">VIGILANT</span>
+        </div> <!-- Close dangerous-action div here -->
+
+        <!-- Content container for centered paragraphs -->
+        <div class="content-container">
+            <p>Unfortunately, research shows that our cyber hygiene habits leave a lot to be desired.</p>
+            <p>Nearly 41% of organizations rely on human memory to manage passwords, and 30% write down passwords on paper. And around two-thirds of large multi-national companies do not use password managers to store password data.</p>
+            <p>Thanks to an uptick in remote working, systems protected by weak passwords are now being accessed from unprotected home networks or even open networks at coffee shops. Remote workers may also use their personal devices for work, which do not have the same security measures and encryption in place.</p>
+            <p>What is clear is that improving cyber hygiene should be at the forefront of company strategy for preventing cyber threats. Companies and individuals that don’t improve their cyber practices are at much greater risk now than ever before..</p>
+        </div>
+
+        <div class="video-section">
+            <div class="video-block">
+                <h3><span class="info-text">For more Information</span>, <span class="highlight-text">watch this</span></h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/qW57_tkznzc" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

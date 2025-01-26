@@ -1,0 +1,175 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;           /* Ensure padding and border are included in element's total width and height */
+    font-family: Arial, sans-serif;  /* Set a default font */
+}
+
+body {
+    background-color: #F1F7FF;       /* Light blue background for the page */
+    color: #333;                     /* Dark gray text color for readability */
+}
+
+/* Main content container */
+main {
+    max-width: 1200px;                  /* Limit width for readability */
+    margin: 20px auto;                  /* Center the content and add vertical space */
+    padding: 0 20px;                    /* Horizontal padding */
+}
+
+.headerOne {
+    text-align: center;                 /* Center align the main heading */
+    color: #04016C;                     /* Dark blue color for the heading */
+    font-size: 2.5rem;                 /* Large font size */
+    margin-bottom: 20px;               /* Space below the heading */
+    font-weight: bold;
+}
+
+/* Decorative blue line under the main heading */
+.blue-line {
+    width: 100vw;                       /* Full width of the viewport */
+    height: 4px;                        /* Adjust thickness */
+    background-color: #1a73e8;          /* Blue color matching the h1 color */
+    margin: 20px 0 40px 0;              /* Optional: spacing around the line */
+    position: relative;
+    left: 50%;                          /* Adjust for centering */
+    right: 50%;                         /* Adjust for centering */
+    margin-left: -50vw;                 /* Extend to the full width */
+    margin-right: -50vw;                /* Extend to the full width */
+}
+
+
+/* Sections for main content areas */
+.top-risks, .other-threats {
+    margin-top: 30px;
+}
+
+.top-risks h2, .other-threats h2 {
+    text-align: center;                    /* Center align section headings */
+    color: #333;                           /* Dark gray color for readability */
+    font-size: 2rem;                       /* Font size for headings */
+    margin-bottom: 20px;                   /* Space below section headings */
+}
+
+.top-risks .highlight, .other-threats .highlight {
+    color: #1a73e8;
+}
+
+.top-risks p, .other-threats p {
+    text-align: center;                    /* Center align text */
+    max-width: 800px;                      /* Limit width for readability */
+    margin: 20px auto;                     /* Center and add spacing around text */
+    font-size: 1rem;                       /* Standard font size */
+    color: #555;                           /* Medium gray color for paragraph text */
+}
+
+.highlight-top {
+    color: #2AAA94;
+}
+
+/* Container for risk cards using flex layout */
+.risks-container {
+    display: flex;                           /* Flex layout for risk cards */
+    flex-wrap: wrap;                         /* Wrap cards to new rows if needed */
+    justify-content: center;                 /* Center the cards */
+    gap: 55px;                               /* Space between the cards remains the same */
+    margin-top: 40px;                        /* Adjust top margin */
+}
+
+/* Risk card styles */
+.risk-card {
+    width: 330px;                            /* Increased width of the cards */
+    text-align: center;
+    margin-bottom: 20px;                     /* Space below the cards */
+}
+
+.risk-card img {
+    width: 100%;                             /* Full width of the card */
+    height: 310px;                           /* Increased height of the images */
+    object-fit: cover;                       /* Ensure the image covers the space without distortion */
+    border-radius: 12px;                     /* Slightly rounded corners */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* Increased shadow for better depth */
+    transition: transform 0.3s ease;          /* Smooth transition for hover effect */
+}
+
+
+.risk-card img:hover {
+    transform: translateY(-10px);                /* Lift the image on hover */
+}
+
+.risk-card p {
+    padding-top: 10px;                      /* Space above the card text */
+    font-size: 1rem;                        /* Standard font size for text */
+    color: #333;                            /* Dark gray color for text */
+}
+
+/* Link styling for "Get Started" links */
+.get-started {
+    display: block;                         /* Block-level link for full width */
+    text-align: center;                     /* Center align link text */
+    color: #1a73e8;                         /* Blue color to stand out */
+    margin-top: 10px;                       /* Space above the link */
+    text-decoration: none;                  /* Remove underline */
+    font-weight: bold;                      /* Bold text */
+}
+
+.get-started:hover {
+    text-decoration: underline;
+}
+
+/* Media Query for smaller screens (Tablets) */
+@media (max-width: 768px) {
+    .risk-card {
+        width: 80%;                               /* Larger cards on smaller screens */
+    }
+
+    .risk-card img {
+        height: auto;                               /* Maintain aspect ratio */
+        margin-bottom: 40px;
+    }
+
+    .risk-card p, .get-started {
+        width: 100%;                               /* Ensure text width matches image width */
+        margin: 0 auto;
+    }
+}
+
+/* Media Query for very small screens (Phones) */
+@media (max-width: 480px) {
+    .risk-card {
+        width: 100%;                               /* Full width on very small screens */
+    }
+
+    .risk-card img {
+        height: auto;                              /* Maintain aspect ratio */
+        margin-bottom: 40px;
+    }
+
+    .risk-card p, .get-started {
+        width: 100%;                               /* Ensure text width matches image width */
+        margin: 0 auto;
+    }
+}
+
+.other-threats {
+    margin-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.other-threats img {
+    width: 100%;                             /* Makes the image span the entire width */
+    height: auto;                            /* Keeps the aspect ratio intact */
+    display: block;                          /* Ensures the image is treated as a block element */
+    margin: 20px auto;                       /* Adds margin for spacing around the image */
+}
+
+.button {     /* Button spesifications of 'Add New Threat' */
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 100px;
+
+}

@@ -1,0 +1,301 @@
+/* For the container of all content, use a flexbox */
+main .profileContainer {
+    display: flex;
+    flex-direction: column; /* Stack the items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: flex-start; /* Align items to the top */
+    position: relative;
+    width: 100%; /* Ensure this takes up full width */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+}
+
+
+/* Background image will take the full width and be behind the content */
+main .bgContain {
+    width: 100vw;
+    height: auto;
+    position: relative;
+    z-index: 0;
+}
+
+main .profileBg {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 586px;
+}
+
+/* User profile image will be centered on top */
+main .userProf {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 500px; /* Adjust according to your needs */
+    left: 30px;
+    z-index: 2;
+}
+
+main .defualtProfilePic {
+    width: 200px; /* Ensure this matches the height */
+    height: 200px; /* Equal width and height for a circle */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+    max-width: 200px; /* Consistent maximum width */
+    max-height: 200px; /* Consistent maximum height */
+    margin-top: 0;
+}
+
+/* For the plus image */
+main .plus {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    max-width: 39px;
+    min-width: 39px;
+    height: auto;
+    margin-top: 60px;
+    left: 170px;
+}
+
+main label[for="firstName"],
+main label[for="lastName"],
+main label[for="email"] {
+    color: black;
+    display: block; /* Ensures that labels are on their own line */
+    margin-bottom: 10px; /* Adds spacing below labels */
+}
+
+main .changeFirstName, main .changeLastName, main .changeEmail, main .changeBirthday {
+    width: 100%; /* Make input fields take up full width of container */
+    padding: 10px;
+    margin-bottom: 10px; /* Add spacing between form items */
+    max-width: 400px;
+}
+
+main .file-input {
+    display: none;
+}
+
+main input {
+    padding-left: 5px; /* adds some padding to the left of data 
+                          inside all input fields on page */
+}
+
+main .headerTwo {
+    font-weight: bold;
+}
+
+/* User profile info */
+main .userProfInfo {
+    margin-top: 200px; /* Push the profile info down */
+    z-index: 1;
+}
+
+main .profInfoFields {
+    width: 400px;
+    margin: left; /* Align from items to the left */
+
+}
+
+main .flexButtons {
+    display: flex; /* This will line the buttons up horizontally */
+    justify-content: space-between;
+    width: 100%; /* Ensure it takes the full width of its container */
+    max-width: 400px; /* You can adjust this value if you want a specific max width */
+    gap: 10px; /* Adds some space between the buttons */
+    align-items: center; /* Ensure both buttons are aligned vertically */
+}
+
+main .changePassword, main .confirmButton {
+    flex: 1; /* Ensures both buttons take up equal space */
+    padding: 10px; /* Adds some padding to the buttons */
+    text-align: center; /* Ensures text is centered inside the button */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    margin: 0; /* Remove any default margin that may affect alignment */
+}
+
+
+main .changePassword {
+  background-image: linear-gradient(to left, #083F9B 0%, #7F56D9 100%);
+  color: white;
+  border: none;
+}
+
+/* CSS for popup window (Change Password) starts here */
+
+main .changePasswordForm{
+        /*Align items vertically*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: left;
+        padding-left: 20px;
+}
+
+main .confirmButton {
+    background-color: #5AB48E !important;
+    color: white;
+    border: none;
+}
+
+main .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+  
+main .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    border-radius: 8px;
+}
+  
+main .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+main .close:hover,
+main .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+  /* CSS for popup window (Change Password) ends here */
+
+
+  main .yourProgressContainer {
+    margin-top: 60px;
+    background-image: linear-gradient(to bottom, #1459CA 7%, #7AA1E3 91%);
+    padding-bottom: 15px;
+    width: 100%;
+    width: 100vh; /* Set container to full viewport height */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+main .yourProgressGraph, main .yourProgressHeading {
+    color: white;
+}
+
+main .yourProgressHeading {
+    margin-left: 20px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+main .yourProgressGraph {
+    text-align: center;
+    margin-top: 10px;           /* Add space between the graph and the text */
+}
+
+  
+main .progressBar {
+    display: block;           /* Make the progress bar a block element */
+    margin: 20px auto;        /* Centers it horizontally and adds top/bottom space */
+    width: 80%;               /* Adjust the width if necessary */
+    padding-bottom: 20px;
+    margin-top: -20px;
+}
+
+main .completed-text {
+  color: white; 
+}
+
+main .userProgressComplete {
+  padding-left: 70px;
+}
+
+
+/*Code for User favorite topics starts here */
+
+main .userFavTopics {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+main .favText {
+    color: #5AB48E;
+}
+
+main .yourFavTopicsText {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+main .favTopicsRows {
+    margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+main .favTopicsRows:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Float columns side by side */
+main .favTopicsColumn {
+    float: left;
+    width: 300px;
+    height: 400px;
+    padding: 0 10px;
+    padding-top: 20px;
+    
+}
+
+main .favTopicsCard {
+    box-sizing: border-box;
+    padding: 16px;
+    text-align: center;
+    background-image: linear-gradient(to right, #4E34BB 14%, #231855 100%);
+    height: 100%;
+    border-radius: 20px;
+
+    /*Align items vertically*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main .userTopicfromDatabase, main .favTopicGraph {
+    color: white;
+}
+
+main .userTopicfromDatabase {
+    font-weight: bold;
+    font-size:larger;
+}
+
+main .favTopicImg{
+    border-radius: 8px;
+    width: 150px;
+    height: 150px;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+
+    main .favTopicsColumn {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }

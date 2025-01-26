@@ -1,0 +1,168 @@
+<!-- Main home page -->
+
+{% extends 'base.html' %}           <!-- Inherits code from the base.html file -->
+
+{% block title %} Home {% endblock %}  <!-- Custom header -->
+
+{% block head %}
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<hr class="line"/>  <!-- Adding horizontal lines -->
+
+<div class="home-container">
+  <div class="imgAndFormDiv"> <!-- Creating div to align img & form with each other -->
+  <div class="logoTwoDiv"> 
+    <img class="logoTwo" src="{{ url_for('static', filename='/img/logos/blue-logo.png') }}" alt="Attack Aware Logo Dark Blue"> 
+
+</div>
+
+<div class="loginForm">
+
+<!--For Flash messages when required-->
+
+  {% with messages = get_flashed_messages(category_filter='login') %} <!-- category_filter='login' is the part that lets the flash message
+                                                                            only show up for this form -->
+  {% if messages %}
+      <ul class="flashes contactUL">
+          {% for message in messages %}
+              <li class="flashItem contactLI">
+                  <img class="iconSpesification" src="{{ url_for('static', filename='/img/icons/warning.png') }}" alt="Warning Icon"> 
+                  <span class="flashMessage">{{ message }}</span>
+              </li>
+          {% endfor %}
+      </ul>
+  {% endif %}
+{% endwith %}
+
+
+<form action=" {{ url_for('home') }} " method="post"> 
+  <input type="hidden" name="csrf_token" id="csrf_token_login1" value="{{ login_form.csrf_token._value() }}"> <!-- CSRF token with unique ID -->
+  <div class="inputContainer"> <!-- New container for inputs and button -->
+    <div class="emailDiv">
+      {{ login_form.email.label }} {{ login_form.email(autocomplete="email") }} <!-- Added auto complete for email -->
+    </div>
+    <div class="passwordDiv">
+      {{ login_form.password.label }} {{ login_form.password }}
+    </div>
+    <div class="loginDiv" >
+      {{ login_form.submit(id="submit_login") }} <!-- Added unique ID for submit button as need unique names if more than one on page -->
+    </div>
+
+  <div class="archContainer">
+    <img class="largeArchImg" src="{{ url_for('static', filename='img/icons/Arch.png') }}">
+    <img class="medArchImg" src="{{ url_for('static', filename='img/icons/Arch.png') }}">
+    <img class="smallArchImg" src="{{ url_for('static', filename='img/icons/Arch.png') }}">
+    </div>
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+<hr class="line"/>
+
+<div class="welcomeContainer">
+  <div class="welcomeGraph">
+    <h1><div class="headingBlack">Welcome</div> <div class="headingTeal">Message</div></h1>
+    <p>Welcome to AttackAware! Start your journey to better cybersecurity. Sign in or create an account to begin protecting your digital world....</p>
+</div>
+
+<img class="decorCircle" src="{{ url_for('static', filename='img/icons/circle.png') }}">
+
+<div class="signUpForm">
+
+<form action="{{ url_for('home') }}" method="post">    
+  <input type="hidden" name="csrf_token" id="csrf_token_signup1" value="{{ signup_form.csrf_token._value() }}">
+      <h1>Sign Up</h1>
+      <p>Create an Account</p>
+      <br>
+    
+      {% with messages = get_flashed_messages(category_filter='signup') %} <!-- category_filter='signup' is the part that lets the flash message
+                                                                                 only show up for this form -->
+      {% if messages %}
+          <ul class="flashes contactUL">
+              {% for message in messages %}
+                  <li class="flashItem contactLI">
+                      <img class="iconSpesification" src="{{ url_for('static', filename='/img/icons/warning.png') }}" alt="Warning Icon"> 
+                      <span class="flashMessage">{{ message }}</span>
+                  </li>
+              {% endfor %}
+          </ul>
+      {% endif %}
+  {% endwith %}
+  
+               
+      <br>
+    <div class="nameInputs">
+
+      {{ signup_form.firstName }}
+      {{ signup_form.lastName }}
+
+    </div>
+
+      {{ signup_form.emailSignup }}
+      {{ signup_form.newPassword }}
+      {{ signup_form.birthday }}
+      {{ signup_form.submit(id="submit_signup") }} <!-- Added unique identifier -->
+
+</form>
+
+</div>
+
+</div>
+
+<hr class="thickLine">
+
+<div class="featuredGraph">
+
+<h1>  <div class="headingBlack">Featured </div> 
+  <div class="headingTeal">Courses</div>  
+</h1>
+
+<p>
+  Explore our top cybersecurity guides, including step-by-step 
+  advice on handling the most common threats like ransomware 
+  and phishing. Dive into interactive scenarios to 
+  test your skills and improve your response to real-world cyber attacks.
+</p>
+
+</div>
+
+<section class="tilesContainer">
+     <div class="tile"> 
+      <img class="tileImg" alt="Puzzel Pieces" src="{{ url_for('static', filename='img/img/puzzel.jpg') }}">
+      Interactive Cyber Threat Simulations 
+    </div>
+     <div class="tile">
+     <img class="tileImg" alt="Puzzel Pieces" src="{{ url_for('static', filename='img/img/fiveStars.png') }}">
+     Latest Threat Alerts
+    </div>
+    <div class="tile"> 
+      <img class="tileImg" alt="Puzzel Pieces" src="{{ url_for('static', filename='img/img/play.png') }}">
+      Stay Updated on the Top 5 Cyber Risks
+    </div>
+     <div class="tile"> 
+      <img class="tileImg" alt="Puzzel Pieces" src="{{ url_for('static', filename='img/img/bullsEye.png') }}">
+      Step-by-Step Security Guides
+    </div>
+      <div class="tile"> 
+        <img class="tileImg" alt="Puzzel Pieces" src="{{ url_for('static', filename='img/img/profile.png') }}">
+        Manage your own Account
+      </div>
+     <div class="tile">
+      <img class="tileImg" alt="Puzzel Pieces" src="{{ url_for('static', filename='img/img/questMark.png') }}">
+      Knowledge Quizzes 
+    </div>
+</section>
+
+{% endblock %}

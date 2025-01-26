@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body class="contact_us-page">
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Contact Us</h1>
+    </div>
+{% block head %}
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/contact_us.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+    <!-- Main Content Section -->
+    <div class="content">
+        <!-- Contact Form Section -->
+        <div class="contact-form">
+            <h2>Get in Touch with our Team</h2>
+            <form action="#" method="post">
+                <!-- Input field for phone number or email -->
+                <input type="text" name="contact-info" placeholder="Mobile or Email address" required>
+                <!-- Textarea for user message -->
+                <textarea name="message" placeholder="What can we help with?" required></textarea>
+                <!-- Submit button for the form -->
+                <button type="submit">Send</button>
+            </form>
+        </div>
+
+        <!-- Contact Information and Map Section -->
+        <div class="contact-container">
+            <!-- Contact Information Box -->
+            <div class="contact-info-container">
+                <h3>Contact Information</h3>
+                <p><i class="fa fa-phone"></i> +888 555 1230</p>
+                <p><i class="fa fa-envelope"></i> contact@attack-aware.com</p>
+                <p><i class="fa fa-map-marker"></i> 7485 West Street, Medford, Massachusetts, 02155, United States</p>
+            </div>
+
+            <!-- Google Map Embedding -->
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2949.7322801702815!2d-71.10973358454465!3d42.37361197918643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3772f2d5b8d75%3A0x5e8a2bd5a4f9d912!2sMassachusetts%20Institute%20of%20Technology!5e0!3m2!1sen!2sus!4v1619039965815!5m2!1sen!2sus"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to popup.js -->
+    <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
+</body>
+{% endblock %}

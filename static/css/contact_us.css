@@ -1,0 +1,169 @@
+/* General body styles */
+body.contact_us-page {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #F1F7FF;
+}
+
+/* Global styles for header */
+body.contact_us-page .header {
+    background-color: #5989DB;
+    padding: 20px 0;
+    text-align: center;
+    color: #000000;
+    width: 100%;
+    margin-bottom: 40px; /* Space between headers */
+}
+
+body.contact_us-page .header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+body.contact_us-page .header p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: #f0f4ff;
+}
+
+/* Specific styles for the contact_us-page */
+body.contact_us-page .content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.contact_us-page .contact-form {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+body.contact_us-page .contact-form h2 {
+    color: #04016C;
+    margin-bottom: 20px;
+}
+
+body.contact_us-page .contact-form input,
+body.contact_us-page .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+body.contact_us-page .contact-form textarea {
+    height: 100px;
+    resize: none;
+}
+
+body.contact_us-page .contact-form button {
+    background-color: #7453E7;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+body.contact_us-page .contact-form button:hover {
+    background-color: #5b3ec8;
+}
+
+/* Contact container for contact info and map */
+body.contact_us-page .contact-container {
+    display: flex;
+    gap: 40px;
+    width: 110%;
+    max-width: 1100px;
+    margin-top: 40px;
+     justify-content: flex-start; /* Align items to the left */
+}
+
+body.contact_us-page .contact-info-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+   flex: 1;
+}
+
+body.contact_us-page .contact-info-container h3 {
+    margin-top: 0;
+}
+
+body.contact_us-page .contact-info-container p {
+    margin: 10px 0;
+}
+
+body.contact_us-page .map-container {
+    flex: 2;
+}
+
+body.contact_us-page .map-container iframe {
+    width: 120%;
+    height: 400px;
+    border-radius: 8px;
+    border: 0;
+}
+
+/* Styles for the thank you popup */
+body.contact_us-page .thank-you-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(89, 137, 219, 0.3);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 500px;
+    max-width: 100%;
+    height: 600px;
+    max-height: 100%;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body.contact_us-page .thank-you-popup p {
+    margin: 0;
+    padding-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+body.contact_us-page .thank-you-popup button {
+    background-color: #7453E7;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+body.contact_us-page .thank-you-popup button:hover {
+    background-color: #5b3ec8;
+}
+
+body.contact_us-page .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}

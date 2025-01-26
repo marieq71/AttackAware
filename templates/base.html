@@ -1,0 +1,225 @@
+<!-- Inheritable base template -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- For responsive webpage, mobile friendly-->
+    <meta name="csrf-token" content="{{ csrf_token() }}"> <!-- CSRF token for forms -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> <!-- Bootstrap css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/logos/favicon.ico') }}" type="image/x-icon"> <!-- Favicon -->
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/logos/apple-touch-icon.png') }}"> <!-- Apple Touch icon -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> <!-- Bootstrap bundle -->
+    <script src="https://kit.fontawesome.com/017c367aad.js" crossorigin="anonymous"></script> <!-- Font Awesome for icons -->
+    <!-- Child templates can override the page title -->
+    <title>Attack Aware - {% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %} <!-- For linking of other pages -->
+</head>
+
+<body>
+<!-- Header/Navigation section -->
+<header class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a href="{{ url_for('home') }}" class="navbar-brand d-flex align-items-center logo-container">
+            <img src="{{ url_for('static', filename='img/logos/white-logo.png') }}" alt="Logo" class="logo-image">
+        </a>
+
+        <!-- Toggle button for responsive navigation -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible nav links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>  <!-- Link for home -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('profile') }}">Profile</a>  <!-- Link for profile -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('threats') }}">Threats</a>  <!-- Link for threats -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('contact_us') }}">Contact Us</a>  <!-- Link for contact -->
+                </li>
+            </ul>
+
+            <!-- Vertical divider and auth buttons -->
+            <div class="d-flex align-items-center">
+                <div class="vertical-divider"></div>
+                <div class="auth-buttons">
+                    {% if current_user.is_authenticated %}
+                        <!-- Logout button if the user is logged in -->
+                        <form action="{{ url_for('logout') }}" method="post">
+                            <button class="btn btn-outline-primary" id="logoutBtn">Logout</button>
+                        </form>
+                    {% else %}
+                        <!-- Login button if the user is not logged in -->
+                        <button class="btn btn-outline-primary" id="show-login-popup">Login</button>
+                    {% endif %}
+                    <!-- <button class="btn btn-outline-primary" id="show-login-popup">Login</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main inheritable content -->
+<main> 
+{% block content %}{% endblock %}     
+
+<!-- Display flash messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endwith %}
+</main>
+
+<footer>
+<!-- Footer content -->
+<footer class="footer-container">
+    <div class="footer-content">
+        <!-- Logo section -->
+        <div class="logo-text">
+            <img src="{{ url_for('static', filename='img/logos/purple-logo.png') }}" alt="Logo" class="footer-logo">
+            <p class="company-text">AttackAware equips you with essential cybersecurity knowledge. 
+                Users are encouraged to stay informed and take proactive measures to protect themselves 
+                and their loved ones from potential threats.
+            </p>
+        </div>
+
+        <!-- Vertical divider -->
+       <!-- <div class="vertical-divider"></div> -->
+
+        <!-- Links -->
+        <div class="footer-links">
+            <h5>Links</h5>
+            <!-- First link row -->
+            <div class="links-container">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>        
+                    <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                </ul>
+
+                <!-- Second link row -->
+                <ul>
+                    <li><a href="{{ url_for('threats') }}">Threats</a></li>
+                    <li><a href="/">Courses</a></li>  <!-- Can change to an about page if needed -->    
+                </ul>
+            </div>
+        </div>
+
+        <!-- Vertical divider -->
+        <!--<div class="vertical-divider"></div>-->
+
+        <!-- Contact info -->
+        <div class="contact-info">
+            <h5>Contact Us</h5>
+            <p><i class="fa-solid fa-phone"></i>+629 555 1020</p>
+            <p><i class="fa-solid fa-envelope"></i>contact@attack-aware.com</p>
+            <p><i class="fa-solid fa-location-dot"></i>7485 West Street, Massachusetts 02156 United States</p>
+        </div>
+    </div>
+
+    <!-- Social media icons-->
+    <div class="social-media">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+
+    <!-- Divider -->
+    <hr class="footer-divider">
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <p>&copy; 2024 AttackAware. All rights reserved.</p>
+    </div> 
+</footer>
+
+<div class="blur-background"></div>
+
+<!-- LOGIN POP UP FORM -->
+<div class="login-popup">       
+    <div class="close-btn">                   <!-- Close Button -->
+        <i class="fa-solid fa-x"></i>
+    </div>
+    <div class="login-form login">            <!-- LOGIN -->
+        <div class="left-info">
+         <!--  <h2>Welcome Back</h2>
+            <p>Please login using your account information.</p> --> 
+        </div>
+        <div class="form-content">
+            <h2>LOGIN</h2>
+            <form action="{{ url_for('login') }} " method="post">  
+                <input type="hidden" name="csrf_token" id="csrf_token_login" value="{{ login_form.csrf_token._value() }}">  <!-- Manually render CSRF token -->  
+                <div class="input-field">
+                    <!-- Email input -->
+                    {{ login_form.email.label }} 
+                    {{ login_form.email(class='form-control', id='email_login', autocomplete='email') }}
+                </div>
+                <div class="input-field">
+                    <!-- Password input -->
+                    {{ login_form.password.label }}
+                    {{ login_form.password(class='form-control', id='password_login') }}
+                </div>
+                <a href="#" class="forgot-password">Forgot Password?</a> <!-- Forgot Password Link -->
+                <button type="submit" name="action" value="login">Log In</button>
+            </form>
+            <div class="bottom-link">
+                Don't have an account?
+                <a href="#" id="signup-link">Signup</a>          <!-- Sign Up Link -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SIGNUP POPUP FORM -->   
+    <div class="login-form signup">           <!-- SIGNUP -->
+        <div class="left-info">
+            <!--<h2>Create Account</h2>
+            <p>To become a part of our community, please sign up using your personal information.</p>-->
+        </div>
+        <div class="form-content">
+            <h2>SIGNUP</h2>
+            <form action="{{ url_for('signup') }}" method="post"> <!-- Points to signup route -->
+                <input type="hidden" name="csrf_token" id="csrf_token_signup" value="{{ signup_form.csrf_token._value() }}">  <!-- Manually render CSRF token -->
+                <div class="input-field">
+                    <!-- Email input -->
+                    {{ signup_form.emailSignup.label }}
+                    {{ signup_form.emailSignup(class='form-control', id='email_signup', autocomplete='email') }}  <!-- Added unique IDs -->
+                </div>
+                <div class="input-field">
+                    <!-- Password input -->
+                    {{ signup_form.newPassword.label }}
+                    {{ signup_form.newPassword(class='form-control', id='password_signup') }} <!-- Added unique IDs -->
+                </div>
+                <div class="policy-text">
+                    <input type="checkbox" id="policy" required>
+                    <label for="policy">
+                        I agree to the 
+                        <a href="#">Terms & Conditions</a>
+                    </label>
+                </div>
+                {{ signup_form.submit(id="submit_signup1") }}
+            </form>
+            <div class="bottom-link">
+                Already have an account?
+                <a href="#" id="login-link">Login</a>          <!-- Login Link -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script for login/signup popup functionality -->
+<script src="{{ url_for('static', filename='js/login_popup.js') }}"></script>
+</body>
+</html>

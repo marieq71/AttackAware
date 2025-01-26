@@ -1,0 +1,528 @@
+/* FLASH MESSAGES */
+
+.flash-messages {
+    margin: 10px 0; /* Adds spacing arount the messages */
+}
+
+.flash {  
+    padding: 10px;         /* Padding inside */
+    margin-bottom: 10px;   /* Spacing between messages */
+    border-radius: 5px;    /* Rounded corners */
+}
+
+/* Success styling */
+.flash.success {
+    background-color: #d4edda;  /* Green background */
+    color: #155724;
+}
+
+/*  Error styling */
+.flash.error {
+    background-color: #f8d7da;  /* Red backgound */ 
+    color: #721c24;
+}
+
+/* BODY - General styling for website */
+body {
+    font-family: 'Arial', sans-serif; /* Website font */
+    margin: 0 auto;       /* Centres content */
+    padding: 0;          
+    box-sizing: border-box; 
+}
+
+/* MAIN */
+main {
+    background-color: #f8f9fa;  /* Light grey background styling for each page inheriting from base */
+}
+
+/* HEADER */
+
+/* Navbar inside header */
+header .navbar {
+    background-color: #ffffff !important; /* white background */
+    border-bottom: 1px solid #ddd;   /* Grey border below navbar */
+    padding: 10px 20px;
+    margin-bottom: 40px; /* Space between header and main content */
+}
+
+/* HEADER LOGO */
+header .logo-image {
+    width: 110px;
+    height: auto;   /* Keeps the correct ratio for the image height */
+    transition: width 0.3s ease; /* Hover effect */
+}
+
+/* Responsive logo sizes */
+@media (max-width: 768px) {
+    header .logo-image {
+        width: 50px; /* medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    header .logo-image {
+        width: 40px; /* small screens */
+    }
+}
+
+/* NAVIGATION LINKS */
+
+/* Colour, font size, and margins for links */
+header .navbar-nav .nav-item .nav-link {
+    color: #333;
+    font-size: 18px;
+    margin: 0 20px;
+}
+
+/* Hover for nav links */
+header .navbar-nav .nav-item .nav-link:hover {
+    color: #39b1a6;
+}
+
+/* Vertical Divider */
+header .vertical-divider {
+    border-left: 2.5px dashed #504EC1;
+    height: 70px;
+    margin: 0 15px;
+    padding-left: 5px;
+}
+
+/* Hides the vertical divider from the dropdown menu */
+@media screen and (max-width: 994px) {
+    .vertical-divider {
+    display: none;
+    }
+}
+
+/* Login and Signup Buttons */
+header.navbar .auth-buttons .btn-outline-primary, header .auth-buttons .btn-primary {
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px 10px; 
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease; /* Hover effect */
+    margin-right: 20px; /* Adds space to the right of the button */
+}
+
+/* Outline styling for login button */
+header.navbar .auth-buttons .btn-outline-primary {
+    border-color: #2AAA94;
+    color: #2AAA94 !important;
+    margin-left: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Hover effect for outline */
+header .navbar .auth-buttons .btn-outline-primary:hover {
+    background-color: #39b1a6;
+    border-color: #2AAA94;
+    color: #fff;
+}
+
+/* For drop down styling - login button */
+.navbar-collapse .auth-buttons .btn-outline-primary {
+    padding-left: 15px; 
+    margin-left: 0;   /* Changes the left margin */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* LOGIN FORM POPUP */
+
+/* Background Blur */
+.blur-background {               
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);    /* Creates the blur effect */
+    z-index: 100;        /* Ensures it's above other content */
+    display: none;
+}
+
+body.show-popup::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 9999; 
+}
+
+body.show-popup .blur-background {
+    display: block;
+}
+
+.login-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 720px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    background: #fff;
+    border: 2px solid #fff;
+    transform: translate(-50%, -100%);
+    border-radius: 5px;
+    z-index: 10000;                /* Ensure it stays on top of all page content */
+}
+
+.login-popup.show-popup {
+    display: block; 
+}
+
+.show-popup .login-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease, opacity 0.1s;
+}
+
+/* Close Button */
+.login-popup .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #878484;
+    cursor: pointer;
+}
+
+/* Divides the 2 sections */
+.login-popup .login-form {
+    display: flex;
+}
+
+/* Left Content */
+.login-form .left-info{
+    max-width: 330px;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    padding: 0 20px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Login Background */
+.login .left-info {
+    background: url("../img/img/phishing.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Signup Background */
+.signup .left-info {
+    background: url("../img/img/typing.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Main Headings */
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Right Content */
+.login-form .form-content {  
+    width: 100%;
+    padding: 35px;
+}
+
+/* Email & Password Box Fields */
+.login-form form .input-field {              
+    height: 50px;
+    width: 90%;
+    margin-top: 20px;
+    position: relative;
+}
+
+/* Email & Password Input Fields */
+.login-form form .input-field input { 
+    width: 100%;
+    height: 80%;
+    outline: none;
+    padding: 0 15px;
+    font-size: 0.95rem;
+    border-radius: 3px;
+    border: 1px solid #717171;
+}
+
+/* Border style when email or password field is clicked on */
+#email input:focus, #password input:focus {
+    border-color: #504EC1;
+}
+
+/* For the labels of email and password */
+#email label, #password label {
+    position: absolute;
+    top: 42%;
+    left: 14px;
+    color: #717171;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: 0.2s ease;
+}
+
+/* Label transition when email or password field is initiated */
+#email input:is(:focus, :valid) ~ label, #password input:is(:focus, :valid) ~ label {
+    color: #2AAA94;
+    font-size: 0.75rem;
+    transform: translateY(-100%);
+}
+
+/* Forget PW and Signup Links */
+.login-form a {                  
+    color: #2AAA94;
+    text-decoration: none;
+}
+
+/* Forget PW and Signup Links Hover */
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+ /* Forgot PW & Policy Styling */
+.login-form :where(.forgot-password, .policy-text) {
+    display: inline-flex;
+    margin-top: 14px;
+    font-size: 0.95rem;
+}
+
+/* Login Button */
+.login-form form button,
+.login-form #submit_signup1 {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 0;
+    border-radius: 3px;
+    margin: 25px 0;
+    color: #fff;
+    cursor: pointer;
+    background: #2AAA94; 
+    transition: 0.2s ease;
+}
+
+/* Login Button Hover */
+.login-form form button:hover,
+.login-form #submit_signup1:hover {     
+    background: #7352E6;
+}
+
+/* Signup Styling */
+.login-form .bottom-link {          
+    text-align: center;
+}
+
+/* Removes Signup/Login Section When Not on Display */
+.login-popup .signup,
+.login-popup.show-signup .login  { 
+    display: none;
+}
+
+/* Shows Signup Section */
+.login-popup.show-signup .signup {
+    display: flex;
+}
+
+/* Policy Stying */
+.signup .policy-text {
+    display: flex;
+    align-items: center;
+}
+
+.signup .policy-text input {
+    width: 14px;
+    height: 14px;
+    margin-right: 7px;
+}
+
+/* RESPONSIVE LOGIN/SIGNUP POPUP FORM */
+
+@media (max-width: 760px) {
+    .login-popup {
+        width: 80%;
+    }
+
+    .login-form .left-info {       /* Removes left content when scaled down */
+        display: none;
+    }
+
+    .login-form .form-content {
+        padding: 30px 20px;
+    }
+}
+
+/* FOOTER */
+
+/* Footer Container */
+footer .footer-container {
+    background: linear-gradient(100deg, #341F9D, #7352E6); /* Graident background */
+    color: white;
+    margin-top: 20px; /* Space above footer - breaks up the main content */
+    padding: 70px 120px 10px 120px;    /* Footer padding inside */
+}
+
+/* Columns */
+footer .footer-content {
+    display: flex;   /* Flexbox layout */
+    justify-content: space-between;    /* Columns with space between */
+    gap: 20px;  /* Column gap */
+}
+
+/* FOOTER LOGO */
+footer .footer-logo {
+    width: 110px;
+    margin-bottom: 20px;
+}
+
+/* Text under logo */
+footer .logo-text {
+    max-width: 500px;
+    font-size: 14px;
+    color: white;
+}
+
+/* FOOTER LINKS */
+footer .footer-links {
+    text-align: left;
+}
+
+/* Main Headings */
+footer .footer-links h5 {
+    font-size: 19px;
+    margin-bottom: 10px;  /* Space below headings */
+    margin-top: 30px;     /* Space above headings */
+    position: relative;  /* For use of ::after */
+}
+  
+/* Underline styling for headings */
+footer .footer-links h5::after,
+footer .contact-info h5::after {
+    content: "";     /* Empty content */
+    display: block;
+    width: calc(100% + 0.5em);       /* Underline width to text length */
+    height: 2px;                    /* Line height */
+    max-width: 20%;                /* Max width */
+    background-color: white;   /* Colour of underline */
+    margin-top: 5px;
+    margin-bottom: 20px;    /* Space between underline and column content */
+}
+
+footer .links-container {
+    display: flex;
+    gap: 30px; /* gap between links */
+}
+
+footer .links-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer .links-container ul li {
+    margin-bottom: 10px;
+}
+
+footer .links-container ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+footer .links-container ul li a:hover {
+    color: #2AAA94;
+}
+
+/* Contact info */
+footer .contact-info {
+    text-align: left;
+}
+
+footer .contact-info h5 {
+    font-size: 19px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    position: relative;
+}
+
+footer .contact-info p {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+footer .contact-info i {
+    margin-right: 20px;
+}
+
+/* Social media icons */
+footer .social-media {
+    text-align: right;   /* Aligns icons to the right */
+    margin: 20px 0;
+}
+
+footer .social-media a {
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .social-media i {
+    display: inline-block;
+    font-size: 18px;
+    color: white;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #5c23d6;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+footer .social-media i:hover {
+    background: #2AAA94;   /* Hover colour */
+}
+
+/* Divider and copyright */
+footer .footer-divider {
+    margin: 20px 0;
+    border-top: 1px solid white;
+}
+
+footer .copyright {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Responsive */
+@media screen and (max-width: 1364px) {
+    footer .footer-content,
+    footer .contact-info,
+    footer .footer-links {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;       /* Centers the social media icons */
+      padding-top: -15px;
+    }
+
+    footer .footer-links h5::after,
+    footer .contact-info h5::after {
+        margin-left: auto;
+        margin-right: auto;     /* Centers the underline */
+    }
+
+    footer .social-media {
+        padding-top: 30px;    /* Spacing for icons */
+        text-align: center;
+    }
+}
